@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>html</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="page-header">
+      <div class="container">
+        <p><a href="index.html">index</a></p>
+      </div>
+    </header>
+
+    <main class="page-main">
+
+      <section class="html">
+        <div class="container">
+
+          <section class="html__a">
+            <details class="show-block a" open>
+              <summary><code>a</code></summary>
+
+              <pre>
+  <code>
+a { ... }
+a:link { ... }
+a:visited { ... }
+a:focus { ... }
+a:hover { ... }
+a:active { кнопка мыши зажата на ссылке }
+  </code>
+</pre>
+              <details class="show-piece">
+                <summary><code>Зона кликабельности ссылки</code></summary>
+                <pre>
+  <code>
+div {
+  position: relative;
+}
+
+a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+  </code>
+</pre>
+              </details>
+
+              <details class="show-piece">
+                <summary><code>ссылка на файл</code></summary>
+                <p>при переходе по ссылке на файл браузер предложит его скачать.</p>
+                <p>Однако, если браузер умеет обрабатывать файлы этого типа, то содержимое файла откроется прямо в
+                  браузере. Чаще всего так
+                  происходит с изображениями.</p>
+                <p>предотвратить открытие файлов прямо в браузере:</p>
+                <pre>
+  <code>
+&lt;a href="file.pdf" download&gt;Браузер скачает меня, а не будет читать&lt;/a&gt;
+  
+rel="noopener" // атрибут позволяет игнорировать скрипты сторонней страницы
+</code>
+</pre>
+                <p>При скачивании или загрузке файлов со сторонних сайтов для безопасности можно использовать атрибут
+                  rel="noopener". Этот
+                  атрибут позволяет игнорировать скрипты сторонней страницы, которые могут влиять на загрузку файла.
+                  Особенно актуален
+                  этот атрибут в случае, если загрузка происходит в новой вкладке или новом окне.</p>
+              </details>
+
+            </details>
+          </section>
+
+          <section class="html__text">
+            <details class="show-block text">
+              <summary><code>text</code></summary>
+              <ul class="list-reset">
+                <li>
+                  <p><b>&lt;b&gt;жирный текст&lt;/b&gt;</b></p>
+                </li>
+                <li>
+                  <p><strong>&lt;strong&gt;важный жирный текст&lt;/strong&gt;</strong></p>
+                </li>
+                <li>
+                  <p><em>&lt;em&gt;важный курсивный текст&lt;/em&gt;</em></p>
+                </li>
+                <li>
+                  <p><i>&lt;i&gt;курсивный текст&lt;/i&gt;</i></p>
+                </li>
+                <li>
+                  <p><u>&lt;u&gt;подчеркнутый текст&lt;/u&gt;</u></p>
+                </li>
+                <li>
+                  <p><s>&lt;s&gt;перечеркнутый текст&lt;/s&gt;</s></p>
+                </li>
+              </ul>
+
+
+              <details class="show-piece br">
+                <summary><code>br</code></summary>
+                <p>использование &lt;br&gt; допустимо точечно в небольших информационных и промо-текстах, если так
+                  требуется в макете.</p>
+              </details>
+
+              <details class="show-piece text-align">
+                <summary><code>text-align</code> -- задается контейнеру</summary>
+                <p>задается блоку-контейнеру, внутри которого находится текстовый контент</p>
+
+                <div class="text-align">
+                  <ul class="list-reset">
+                    <li>
+                      <h3>left (default)</h3>
+                      <p>Lorem ipsum, consectetur adipisicing elit. Quia, accusamus.</p>
+                    </li>
+                    <li style="text-align: right">
+                      <h3>right</h3>
+                      <p>Lorem ipsum, consectetur adipisicing elit. Quia, accusamus.</p>
+                    </li>
+                    <li style="text-align: center">
+                      <h3>center</h3>
+                      <p>Lorem ipsum, consectetur adipisicing elit. Quia, accusamus.</p>
+                    </li>
+                    <li style="text-align: justify">
+                      <h3>justify</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus incidunt aliquam
+                        voluptate? Maiores, eos saepe. Iusto facilis laboriosam nobis ad!</p>
+                    </li>
+                    <li style="text-align: start">
+                      <h3>start</h3>
+                      <p>зависит от <code>direction ltr/rtl</code></p>
+                    </li>
+                    <li style="text-align: end">
+                      <h3>end</h3>
+                      <p>зависит от <code>direction ltr/rtl</code></p>
+                    </li>
+                  </ul>
+                </div>
+
+              </details>
+
+              <details class="show-piece vertical-align">
+                <summary><code>vertical-align</code> -- задаётся элементу</summary>
+                <p>задаётся элементу, а не содержащему его контейнеру</p>
+                <p><code>top / bottom / baseline / middle / sub / super / text-bottom / text-top</code></p>
+              </details>
+
+              <details class="show-piece line-height">
+                <summary><code>line-height</code> -- межстрочный интервал</summary>
+                <p><code>line-height: множитель | значение | проценты | normal | inherit</code></p>
+              </details>
+
+              <details class="show-piece letter-spacing">
+                <summary><code>letter-spacing</code> -- интервал между символами</summary>
+                <p><code>letter-spacing: значение | normal | inherit</code></p>
+              </details>
+
+              <details class="show-piece white-space">
+                <summary><code>white-space</code> -- управление пробелами</summary>
+                <p><code>white-space: normal | nowrap | pre | pre-line | pre-wrap | inherit</code></p>
+              </details>
+
+              <details class="show-piece sub-sup">
+                <summary><code>sub / sup</code> -- нижний и верхний индекс</summary>
+                <p><code>20м<sup>2</sup>H<sub>2</sub>O - X<sup>3</sup>+X<sup>2</sup>=1</code></p>
+              </details>
+
+              <details class="show-piece del-ins">
+                <summary><code>del / ins</code> -- теги изменений</summary>
+                <p><code>теги для работаты с редактурой: </code> что убрали, что добавили.</p>
+                <pre>
+  <code>
+атрибуты
+
+cite -- используется для ссылки на источник или описание произошедшего изменения
+datetime --  можно указать дату и время поправки
+  </code>
+</pre>
+                <pre>
+  <code>
+&lt;del&gt; «delete» // текст который был удалён в новой версии документа.
+&lt;ins&gy; «insert» // текст который был добавлен в новой версии документа.
+
+&lt;del datetime="2009-10-10T23:38-07:00"&gt;Поспать&lt;/del&gt;
+  </code>
+</pre>
+                <p>datetime предназначен не для людей</p>
+              </details>
+
+            </details>
+          </section>
+
+          <section class="html__fonts">
+            <details class="show-block fonts">
+              <summary><code>fonts</code></summary>
+              <p><code>font: font-style, font-variant, font-weight, font-size/line-height, font-family;</code></p>
+              <pre>
+  <code>
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url("../fonts/RobotoCondensed-Light.ttf");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+  </code>
+</pre>
+
+              <p>
+                <a href="https://fontstorage.com/blog/about-font-face-part-one/">
+                  Подключение нестандартных шрифтов. Часть первая
+                </a>
+              </p>
+              <p>
+                <a href="https://fontstorage.com/blog/about-font-face-part-two/">
+                  Подключение нестандартных шрифтов. Часть вторая
+                </a>
+              </p>
+
+            </details>
+          </section>
+
+
+          <section class="html__lists">
+            <details class="show-block ">
+              <summary><code>списки</code></summary>
+
+              <details class="show-piece unordered-list">
+                <summary><code>unordered list</code> -- неупорядоченный список</summary>
+                <p>в ul могут находиться только теги li -- «list item»</p>
+                <p>Пунктов должно быть не менее одного.</p>
+              </details>
+
+              <details class="show-piece ordered-list">
+                <summary><code>ordered list</code> -- упорядоченный список</summary>
+                <p><code>У ol может быть несколько атрибутов: start, reversed и type.</code></p>
+                <p>По умолчанию нумерация пунктов начинается с единицы, а с помощью start можно поменять это стартовое
+                  число. Нумерация пунктов списка может также быть отрицательной.</p>
+                <pre>
+  <code>
+start     -- меняет стартовое число нумерации, может быть отрицательным.
+reversed  -- меняет направление нумерации на противоположный, не требует значения
+type      -- можно задавать различные типы маркеров
+  </code>
+</pre>
+                <ul class="list-reset">
+                  <li>1: десятичное число</li>
+                  <li>a: буквы латинского алфавита в нижнем регистре</li>
+                  <li>A: буквы латинского алфавита в верхнем регистре</li>
+                  <li>i: римские цифры в нижнем регистре</li>
+                  <li>I: римские цифры в верхнем регистре</li>
+                </ul>
+              </details>
+
+              <details class="show-piece description-list">
+                <summary><code>description list</code> -- список описаний</summary>
+                <p>может содержать более одного описания для каждого термина.</p>
+                <pre>
+  <code>
+&lt;dl&gt;    «description list»           сам список описаний;
+&lt;dt&gt;    «description term»           термин;
+&lt;dd&gt;    «description definition»     описание или определение.
+  </code>
+</pre>
+
+              </details>
+
+            </details>
+          </section>
+
+
+          <section class="html__meta">
+            <details class="show-block meta">
+              <summary><code>meta</code></summary>
+              <p>Перечень ключевых слов задаётся тегом , у которого атрибут name имеет значение keywords. Ключевые слова
+                (самые важные слова из содержания страницы) перечисляются в атрибуте content через запятую</p>
+              <pre>
+  <code>
+&lt;meta name="keywords" content="важные, ключевые, слова"&gt;
+  </code>
+</pre>
+              <p>Краткое описание страницы задаётся похожим образом, только значение атрибута name меняется на
+                description</p>
+              <pre>
+  <code>
+&lt;meta name="description" content="краткое описание"&gt;
+  </code>
+</pre>
+            </details>
+          </section>
+
+          <section class="html__blockquote">
+            <details class="show-block blockquote">
+              <summary><code>blockquote</code></summary>
+
+              <details class="show-piece q">
+                <summary><code>q</code> -- встроенная цитата</summary>
+                <pre>
+  <code>
+&lt;q cite="https://www.w3.org/TR/html52/"&gt;...&lt;/q&gt;.
+  </code>
+</pre>
+                <p>cite — «расширенная версия» атрибута cite. В нём можно указывать помимо адреса источника цитаты ещё и
+                  название произведения, откуда цитируется текст, а также имя автора или организации, чей текст
+                  цитируется.</p>
+                <pre>
+  <code>
+&lt;p&gt;По словам &lt;cite&gt;Чарльза Буковски&lt;/cite&gt; — &lt;q&gt;Интеллектуал о простой вещи говорит сложно —
+художник сложную вещь описывает простыми словами.&lt;/q&gt;&lt;/p&gt;
+
+Тег &lt;cite&gt; может быть самостоятельным и не привязываться к цитате:
+
+&lt;p&gt;Какой доктор ваш любимый (в сериале &lt;cite&gt;Доктор Кто&lt;/cite&gt;)?&lt;/p&gt;
+  </code>
+</pre>
+              </details>
+
+              <details class="show-piece blockquote">
+                <summary><code>blockquote</code> -- отдельная цитата</summary>
+                <p>Для выделения длинных цитат, которые могут состоять из нескольких абзацев</p>
+                <pre>
+  <code>
+может быть атрибут cite, содержащий ссылку на источник цитаты
+также в паре с blockquote можно использовать тег cite
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ум ценится дорого, когда дешевеет сила.&lt;/p&gt;
+  &lt;cite&gt;Джейсон Стэтхэм&lt;/cite&gt;
+&lt;/blockquote&gt;
+  </code>
+</pre>
+              </details>
+
+            </details>
+          </section>
+
+
+
+          <section class="html__">
+            <details class="show-block ">
+              <summary><code></code></summary>
+
+              <details class="show-piece ">
+                <summary><code></code></summary>
+
+              </details>
+
+            </details>
+          </section>
+
+
+          <section class="html__">
+            <details class="show-block ">
+              <summary><code></code></summary>
+
+              <details class="show-piece ">
+                <summary><code></code></summary>
+
+              </details>
+
+            </details>
+          </section>
+
+
+
+          <section class="html__">
+            <details class="show-block ">
+              <summary><code></code></summary>
+
+              <details class="show-piece ">
+                <summary><code></code></summary>
+
+              </details>
+
+            </details>
+          </section>
+
+
+
+
+          <section class="html__">
+            <details class="show-block ">
+              <summary><code></code></summary>
+
+              <details class="show-piece ">
+                <summary><code></code></summary>
+
+              </details>
+
+            </details>
+          </section>
+
+
+
+
+
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="page-footer">
+      footer
+    </footer>
+
+  </div>
+</body>
+
+</html>
