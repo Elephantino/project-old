@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6,p {
 img {
   max-inline-size: 100%;
   block-size: auto;
-  aspect-ratio: 2/1;
+  /* aspect-ratio: 2/1; */
   object-fit: cover;
   object-position: top center;
 }
@@ -96,6 +96,10 @@ pre {
   flex: 0 0 auto;
 }
 
+
+span.red {
+  color: tomato;
+}
 /*******************************/
 
 
@@ -242,3 +246,107 @@ summary::-webkit-details-marker {
 
 
 /* ********************************* */
+
+
+
+
+.video table,
+.audio table {
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 183, 178);
+}
+
+.video caption,
+.audio caption {
+  margin-bottom: .3em;
+}
+
+.video table td,
+.audio table td {
+  border: 1px solid rgb(200, 183, 178);
+  padding: 1em;
+}
+
+
+/* ********************************* */
+
+.box-shadow button {
+  width: 250px;
+  padding: 0.5em;
+  margin: 1em;
+  border: none;
+}
+.box-shadow__button-one {
+  box-shadow: 
+    0 0 2px 1px red,
+    0 0 2px 2px orange,
+    0 0 2px 3px #ff0, 
+    0 0 2px 4px green, 
+    0 0 2px 5px #add8e6, 
+    0 0 2px 6px blue,
+    0 0 2px 7px violet;
+}
+
+.box-shadow__button-two {
+  box-shadow: 
+    -6px -6px 8px -4px rgba(255, 0, 0, .75), 
+     6px -6px 8px -4px rgba(0, 255, 0, .75), 
+     6px 6px 8px -4px rgba(255, 255, 0, .75), 
+    -6px 6px 8px -4px rgba(0, 0, 255, .75);
+}
+
+.box-shadow__button-three {
+  box-shadow: 
+    inset 0 0 8px orange, 
+    1px 1px 3px blue;
+}
+.box-shadow__button-four {
+  box-shadow:
+    0 1px red,
+    0 3px 3px -2px black;
+}
+
+
+.shadow-softening__one {
+  box-shadow: 
+    0 1px 1px rgba(0, 0, 0, .15),
+    0 2px 2px rgba(0, 0, 0, .15), 
+    0 4px 4px rgba(0, 0, 0, .15), 
+    0 8px 8px rgba(0, 0, 0, .15);
+}
+.shadow-softening__two {
+  box-shadow: 
+    0 1px 1px rgba(0, 0, 0, .11), 
+    0 2px 2px rgba(0, 0, 0, .11), 
+    0 4px 4px rgba(0, 0, 0, .11), 
+    0 8px 8px rgba(0, 0, 0, .11), 
+    0 16px 16px rgba(0, 0, 0, .11), 
+    0 32px 32px rgba(0, 0, 0, .11);
+}
+.shadow-softening__three {
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, .07), 
+    0 2px 4px rgba(0, 0, 0, .07), 
+    0 4px 8px rgba(0, 0, 0, .07), 
+    0 8px 16px rgba(0, 0, 0, .07), 
+    0 16px 32px rgba(0, 0, 0, .07), 
+    0 32px 64px rgba(0, 0, 0, .07);
+}
+.shadow-softening__four {
+  box-shadow: 
+    0 1px 1px rgba(0, 0, 0, .11), 
+    0 2px 2px rgba(0, 0, 0, .11), 
+    0 4px 4px rgba(0, 0, 0, .11), 
+    0 6px 8px rgba(0, 0, 0, .11), 
+    0 8px 16px rgba(0, 0, 0, .11);
+}
+.shadow-softening__five {
+  box-shadow: 
+    0 2px 1px rgba(0, 0, 0, .09),
+    0 4px 2px rgba(0, 0, 0, .09), 
+    0 8px 4px rgba(0, 0, 0, .09), 
+    0 16px 8px rgba(0, 0, 0, .09), 
+    0 32px 16px rgba(0, 0, 0, .09);
+}
