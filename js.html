@@ -1226,6 +1226,164 @@ console.log(app.getURL()); // 'https://yandex.ru/'
 
           </section>
 
+          <section class="js__logical-operators">
+            <details class="show-block logical-operators">
+              <summary><code>Логические операторы</code></summary>
+
+              <details class="show-piece">
+                <summary><code>?</code></summary>
+                <p>имеет три аргумента</p>
+                <pre>
+  <code>
+let result = условие ? значение1 : значение2;
+  </code>
+</pre>
+                <p>Сначала вычисляется условие: если оно истинно, тогда возвращается значение1, в противном случае –
+                  значение2.</p>
+
+                <pre>
+  <code>
+let accessAllowed = (age &gt; 18) ? true : false;
+  </code>
+</pre>
+                <p>Технически, мы можем опустить круглые скобки вокруг age &gt; 18. Оператор вопросительного знака
+                  имеет
+                  низкий
+                  приоритет,
+                  поэтому он выполняется после сравнения &gt;.</p>
+                <pre>
+  <code>
+let accessAllowed = age &gt; 18 ? true : false;
+  </code>
+</pre>
+
+                <p>обычная последовательная проверка</p>
+                <pre>
+  <code>
+let age = prompt('Возраст?', 18);
+
+let message = (age &lt; 3) ? 'Здравствуй, малыш!' : 
+              (age &lt; 18) ? 'Привет!' : 
+              (age &lt; 100) ? 'Здравствуйте!' : 'Какой необычный возраст!' ; 
+
+alert( message );     
+  </code>
+</pre>
+
+
+                <pre>
+  <code>
+Вот как это выглядит при использовании if..else:
+
+if (age &lt; 3) { 
+  message='Здравствуй, малыш!' ; 
+} else if (age &lt; 18) { 
+  message='Привет!' ; 
+} else if (age &lt; 100) {
+  message='Здравствуйте!' ; 
+} else { 
+  message='Какой необычный возраст!' ; 
+}
+  </code>
+</pre>
+
+              </details>
+
+              <details class="show-piece">
+                <summary><code>||</code> -- или</summary>
+                <p>возвращает первое истинное значение или последнее</p>
+                <pre>
+  <code>
+result = a || b; //если первый операнд вернет true то второй не вычисляется
+  </code>
+</pre>
+                <p>Существует всего четыре возможные логические комбинации:</p>
+                <pre>
+  <code>
+alert( true || true );   // true
+alert( false || true );  // true
+alert( true || false );  // true
+alert( false || false ); // false
+  </code>
+</pre>
+                <p>Если значение не логического типа, то оно к нему приводится в целях вычислений.</p>
+                <pre>
+  <code>
+    цепочка ИЛИ || возвращает первое истинное значение или последнее, если такое значение не найдено.
+
+let currentUser = null;
+let defaultUser = "John";
+
+let name = currentUser || defaultUser || "unnamed";
+
+alert( name ); // выбирается "John" – первое истинное значение
+
+Если бы и currentUser, и defaultUser были ложными, в качестве результата мы бы наблюдали "unnamed".
+  </code>
+</pre>
+
+                <p>ИЛИ || вычисляет слева направо. Вычисление останавливается при достижении первого истинного
+                  значения.
+                  Этот
+                  процесс
+                  называется «сокращённым вычислением», поскольку второй операнд вычисляется только в том случае,
+                  если
+                  первого
+                  недостаточно для вычисления всего выражения.</p>
+                <pre>
+  <code>
+let x;
+
+true || (x = 1);
+
+alert(x); // undefined, потому что (x = 1) не вычисляется
+
+Если бы первый аргумент имел значение false, то || приступил бы к вычислению второго и выполнил операцию присваивания:
+
+let x;
+
+false || (x = 1);
+
+alert(x); // 1
+
+
+этот вариант использования || является "аналогом if". Первый операнд преобразуется в логический. Если он оказывается
+ложным, начинается вычисление второго.
+  </code>
+</pre>
+              </details>
+
+
+
+
+
+              <details class="show-piece">
+                <summary><code></code></summary>
+
+              </details>
+
+
+
+
+
+              <details class="show-piece">
+                <summary><code></code></summary>
+
+              </details>
+
+
+
+
+              <details class="show-piece">
+                <summary><code></code></summary>
+
+              </details>
+
+
+
+            </details>
+          </section>
+
 
         </div>
       </section> <!-- js -->
