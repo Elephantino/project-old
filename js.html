@@ -273,32 +273,68 @@ console.log(eClass[3]); // element
             <h2 style="text-align: center;">Изменение документа</h2>
 
 
-            <p><code>textContent -</code> получить/добавить просто текст из элемента (более предпочтительней потому что
-              не нужно парсить html)</p>
-            <p><code>innerHTML - </code>получить/добавить контент вместе с тегами</p>
 
-            <pre>
+
+            <details class="show-piece createElement">
+              <summary><code>textContent / innerHTML</code> - получить / добавить просто текст</summary>
+              <p><span class="red">Отличие обоих методов от <code>createTextNode</code> в том что эти методы меняют
+                  текст в уже
+                  существующем элементе в то время как <code>createTextNode</code> создает новый текстовый узел</span>
+              </p>
+
+              <p><code>textContent - </code> просто текст из элемента (более предпочтительней потому
+                что
+                не нужно парсить html)</p>
+              <p><code>innerHTML - </code> контент вместе с тегами</p>
+
+              <pre>
     <code>
 element.textContent = 'Дальше будет &lt;b&gt;интереснее!&lt;/b&gt;';  // Дальше будет &lt;b&gt;интереснее!&lt;/b&gt;
 element.innerHTML = 'Дальше будет &lt;b&gt;интереснее!&lt;/b&gt;';    // Дальше будет <b>интереснее!</b>
     </code>
 </pre>
+            </details>
 
 
 
             <details class="show-piece createElement">
-              <summary>Методы для создания узлов - <code>createElement / createTextNode / cloneNode</code></summary>
+              <summary>Создание узлов - <code>createElement / createTextNode / cloneNode</code></summary>
               <ul>
                 <li><code>document.createElement('tag')</code></li>
-                <li><code>document.createTextNode('value')</code></li>
-                <li><code>elem.cloneNode(deep) //true/false /deep==true</code></li>
+                <li><code>document.createTextNode('value') - схож с textContent</code></li>
+                <li><code>elem.cloneNode(deep / true / false)</code></li>
               </ul>
+
+              <h4>Клонирование узла</h4>
+              <p><code>elem.cloneNode(true/false)</code></p>
+
+              <ul>
+                <li><code>deep - </code>true</li>
+                <li><code>true - </code>со всеми атрибутами и дочерними элементами</li>
+                <li><code>false - </code>без дочерних элементов.</li>
+              </ul>
+
+              <pre>
+    <code>
+&lt;div class="alert" id="div"&gt;
+  &lt;strong&gt;Всем привет!&lt;/strong&gt; Вы прочитали важное сообщение.
+&lt;/div&gt;
+
+let div2 = div.cloneNode(true); // клонировать сообщение
+div2.querySelector('strong').innerHTML = 'Всем пока!'; // изменить клонированный элемент
+
+div.after(div2); // показать клонированный элемент после существующего div
+    </code>
+</pre>
+
             </details>
 
 
             <details class="show-piece">
 
-              <summary>Вставка и удаление элементов - <code>append / prepend / before / after / replaceWith / remove</code></summary>
+              <summary>Вставка и удаление элементов -
+                <code>append / prepend / before / after / replaceWith / remove</code>
+              </summary>
 
               <p>Методы node могут вставлять несколько узлов и текстовых фрагментов за один вызов.</p>
 
@@ -328,8 +364,9 @@ element.innerHTML = 'Дальше будет &lt;b&gt;интереснее!&lt;/
 
 
             <details class="show-piece">
-              <summary>Устаревшие методы - <code>appendChild / insertBefore / removeChild / replaceChild</code></summary>
-              <p>Все эти методы возвращают node.</p>
+              <summary>Устаревшие методы - <code>appendChild / insertBefore / removeChild / replaceChild</code>
+              </summary>
+              <p>Все эти методы возвращают node</p>
               <ul>
                 <li><code>parent.appendChild(node)</code></li>
                 <li><code>parent.insertBefore(node, nextSibling)</code></li>
@@ -343,9 +380,9 @@ element.innerHTML = 'Дальше будет &lt;b&gt;интереснее!&lt;/
               <summary>Вставить фрагмент HTML - <code>insertAdjacent...</code></summary>
               <pre>
     <code>
-elem.insertAdjacentHTML(where, html) // вставляет html (вставит теги с содержимым)
-elem.insertAdjacentText(where, text) // строка text вставляется «как текст», вместо HTML
-elem.insertAdjacentElement(where, elem) // вставляет элемент elem
+elem.insertAdjacentHTML('where', html) // вставляет html (вставит теги с содержимым)
+elem.insertAdjacentText('where', text) // строка text вставляется «как текст», вместо HTML
+elem.insertAdjacentElement('where', elem) // вставляет элемент elem
     </code>
 </pre>
               <p>вставляет в зависимости от where:</p>
@@ -358,30 +395,29 @@ elem.insertAdjacentElement(where, elem) // вставляет элемент ele
 
               <p>используют только insertAdjacentHTML, потому что для элементов и текста есть методы
                 append/prepend/before/after – их быстрее написать, и они могут вставлять как узлы, так и текст.</p>
-            </details>
-
-
-            <details class="show-piece cloneNode">
-              <summary>Клонирование узлов - <code>cloneNode</code></summary>
-              <p><code>elem.cloneNode(true/false)</code></p>
-
-              <ul>
-                <li><code>true - </code>со всеми атрибутами и дочерними элементами</li>
-                <li><code>false - </code>без дочерних элементов.</li>
-              </ul>
-
               <pre>
-    <code>
-&lt;div class="alert" id="div"&gt;
-  &lt;strong&gt;Всем привет!&lt;/strong&gt; Вы прочитали важное сообщение.
-&lt;/div&gt;
+  <code>
+let parent = document.querySelector(".styleAndClass");
 
+let details = document.createElement('details'); // создаем элемент
 
-let div2 = div.cloneNode(true); // клонировать сообщение
-div2.querySelector('strong').innerHTML = 'Всем пока!'; // изменить клонированный элемент
+details.className = "show-piece"; // добавим класс для стилей
 
-div.after(div2); // показать клонированный элемент после существующего div
-    </code>
+parent.append(details); // добавляем элемент на страницу
+
+//фаршируем внутри наш элемент
+details.insertAdjacentHTML('afterbegin', `
+&lt;summary&gt;&lt;code&gt;заголовок&lt;/code&gt;&lt;/summary&gt;
+&lt;p&gt;text&lt;/p&gt;
+&lt;pre&gt;
+    &lt;code&gt;
+код
+    &lt;/code&gt;
+  &lt;/pre&gt;
+&lt;p&gt;text&lt;/p&gt;
+&lt;p&gt;text&lt;/p&gt;
+`);
+  </code>
 </pre>
             </details>
 
@@ -422,9 +458,9 @@ elem.style.top = top; // например, '456px'
 
             <details class="show-piece cssText">
               <summary><code>cssText</code> - полная перезапись стилей</summary>
-              
+
               <p>оно может как добавить стили к существующим, так и полностью перезаписать их на новые</p>
-              
+
               <pre>
     <code>
 let top = /* сложные расчёты */;
