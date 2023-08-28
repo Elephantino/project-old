@@ -268,6 +268,264 @@ console.log(eClass[3]); // element
 
           </section>
 
+          <section class="js__transformation-document">
+
+            <h2 style="text-align: center;">Изменение документа</h2>
+
+
+            <p><code>textContent -</code> получить/добавить просто текст из элемента (более предпочтительней потому что
+              не нужно парсить html)</p>
+            <p><code>innerHTML - </code>получить/добавить контент вместе с тегами</p>
+
+            <pre>
+    <code>
+element.textContent = 'Дальше будет &lt;b&gt;интереснее!&lt;/b&gt;';  // Дальше будет &lt;b&gt;интереснее!&lt;/b&gt;
+element.innerHTML = 'Дальше будет &lt;b&gt;интереснее!&lt;/b&gt;';    // Дальше будет <b>интереснее!</b>
+    </code>
+</pre>
+
+
+
+            <details class="show-piece createElement">
+              <summary>Методы для создания узлов - <code>createElement / createTextNode / cloneNode</code></summary>
+              <ul>
+                <li><code>document.createElement('tag')</code></li>
+                <li><code>document.createTextNode('value')</code></li>
+                <li><code>elem.cloneNode(deep) //true/false /deep==true</code></li>
+              </ul>
+            </details>
+
+
+            <details class="show-piece">
+
+              <summary>Вставка и удаление элементов - <code>append / prepend / before / after / replaceWith / remove</code></summary>
+
+              <p>Методы node могут вставлять несколько узлов и текстовых фрагментов за один вызов.</p>
+
+              <ul>
+                <li><code>node.append(...nodes or strings) – вставляет в node в конец</code></li>
+                <li><code>node.prepend(...nodes or strings) – вставляет в node в начало</code></li>
+                <li><code>node.before(...nodes or strings) – вставляет прямо перед node</code></li>
+                <li><code>node.after(...nodes or strings) – вставляет сразу после node</code></li>
+                <li><code>node.replaceWith(...nodes or strings) – заменяет node</code></li>
+                <li><code>node.remove() – удаляет node</code></li>
+              </ul>
+
+              <pre>
+    <code>
+    <span class="red">before</span>
+&lt;ol id="ol"&gt;
+    <span class="red">prepend</span>
+  &lt;li&gt;0&lt;/li&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+    <span class="red">append</span>
+&lt;/ol&gt;
+    <span class="red">after</span>
+    </code>
+</pre>
+            </details>
+
+
+            <details class="show-piece">
+              <summary>Устаревшие методы - <code>appendChild / insertBefore / removeChild / replaceChild</code></summary>
+              <p>Все эти методы возвращают node.</p>
+              <ul>
+                <li><code>parent.appendChild(node)</code></li>
+                <li><code>parent.insertBefore(node, nextSibling)</code></li>
+                <li><code>parent.removeChild(node)</code></li>
+                <li><code>parent.replaceChild(newElem, node)</code></li>
+              </ul>
+            </details>
+
+
+            <details class="show-piece insertAdjacent">
+              <summary>Вставить фрагмент HTML - <code>insertAdjacent...</code></summary>
+              <pre>
+    <code>
+elem.insertAdjacentHTML(where, html) // вставляет html (вставит теги с содержимым)
+elem.insertAdjacentText(where, text) // строка text вставляется «как текст», вместо HTML
+elem.insertAdjacentElement(where, elem) // вставляет элемент elem
+    </code>
+</pre>
+              <p>вставляет в зависимости от where:</p>
+              <ul>
+                <li><code>beforebegin - </code>вставляет html прямо перед elem</li>
+                <li><code>afterbegin - </code>вставляет html в elem в начало</li>
+                <li><code>beforeend - </code>вставляет html в elem в конец</li>
+                <li><code>afterend - </code>вставляет html сразу после elem</li>
+              </ul>
+
+              <p>используют только insertAdjacentHTML, потому что для элементов и текста есть методы
+                append/prepend/before/after – их быстрее написать, и они могут вставлять как узлы, так и текст.</p>
+            </details>
+
+
+            <details class="show-piece cloneNode">
+              <summary>Клонирование узлов - <code>cloneNode</code></summary>
+              <p><code>elem.cloneNode(true/false)</code></p>
+
+              <ul>
+                <li><code>true - </code>со всеми атрибутами и дочерними элементами</li>
+                <li><code>false - </code>без дочерних элементов.</li>
+              </ul>
+
+              <pre>
+    <code>
+&lt;div class="alert" id="div"&gt;
+  &lt;strong&gt;Всем привет!&lt;/strong&gt; Вы прочитали важное сообщение.
+&lt;/div&gt;
+
+
+let div2 = div.cloneNode(true); // клонировать сообщение
+div2.querySelector('strong').innerHTML = 'Всем пока!'; // изменить клонированный элемент
+
+div.after(div2); // показать клонированный элемент после существующего div
+    </code>
+</pre>
+            </details>
+
+
+            <details class="show-piece DocumentFragment">
+              <summary>DocumentFragment</summary>
+              <p>Специальный DOM-узел, обёртка для передачи списков узлов</p>
+              <p>он используется в некоторых других областях, например, для элемента template</p>
+            </details>
+
+
+            <details class="show-piece">
+              <summary>document.write</summary>
+              <p>работает только до загрузки страницы.</p>
+              <p>после того, как страница загружена, он уже непригоден к использованию</p>
+            </details>
+
+
+          </section>
+
+
+          <section class="styleAndClass">
+            <h2 style="text-align: center;">Стили и классы</h2>
+
+            <p>Классы – всегда предпочтительный вариант по сравнению со style. Мы должны манипулировать свойством style
+              только в том случае, если классы «не могут справиться»</p>
+
+            <pre>
+    <code>
+let top = /* сложные расчёты */;
+let left = /* сложные расчёты */;
+
+elem.style.left = left; // например, '123px', значение вычисляется во время работы скрипта
+elem.style.top = top; // например, '456px'
+    </code>
+</pre>
+
+
+            <details class="show-piece cssText">
+              <summary><code>cssText</code> - полная перезапись стилей</summary>
+              
+              <p>оно может как добавить стили к существующим, так и полностью перезаписать их на новые</p>
+              
+              <pre>
+    <code>
+let top = /* сложные расчёты */;
+let left = /* сложные расчёты */;
+
+elem.style.cssText = `
+  top: ${top};
+  left: ${left};
+`;
+    </code>
+</pre>
+            </details>
+
+            <details class="show-piece className">
+              <summary>className</summary>
+              <p>Если мы присваиваем что-то elem.className, то это заменяет всю строку с классами</p>
+              <pre>
+    <code>
+&lt;body class="main page"&gt;
+
+  &lt;script&gt;
+    alert(document.body.className); // main page
+  &lt;/script&gt;
+&lt;/body&gt;
+    </code>
+</pre>
+
+              <p>Если мы присваиваем что-то elem.className, то это заменяет всю строку с классами.</p>
+            </details>
+
+            <details class="show-piece classList">
+              <summary><code>classList - add / remove / toggle / contains</code></summary>
+              <ul>
+                <li><code>elem.classList.add/remove("class без точки")</code> – добавить/удалить класс</li>
+                <li><code>elem.classList.toggle("class без точки")</code> – добавить класс, если его нет, иначе
+                  удалить</li>
+                <li><code>elem.classList.contains("class без точки")</code> – проверка наличия класса, возвращает
+                  true/false</li>
+              </ul>
+
+
+              <pre>
+    <code>
+classList перебираемый, поэтому можно перебрать все классы:
+
+&lt;body class="main page"&gt;
+
+    for (let name of document.body.classList) {
+      alert(name); // main, затем page
+    }
+&lt;/body&gt;
+    </code>
+</pre>
+            </details>
+
+            <details class="show-piece style">
+              <summary>style</summary>
+              <pre>
+    <code>
+button.style.MozBorderRadius = '5px';
+button.style.WebkitBorderRadius = '5px';
+
+document.body.style.backgroundColor = prompt('background color?', 'green');
+    </code>
+</pre>
+            </details>
+
+            <details class="show-piece">
+              <summary>Сброс стилей</summary>
+              <pre>
+    <code>
+document.body.style.display = "none"; // скрыть
+
+setTimeout(() =&lt; document.body.style.display = "", 1000); // возврат к нормальному состоянию
+    </code>
+</pre>
+            </details>
+
+            <details class="show-piece">
+              <summary>Получить стили</summary>
+              <p><code>getComputedStyle(element, [pseudo])</code></p>
+
+
+              <ul>
+                <li><code>element - </code>Элемент, значения для которого нужно получить</li>
+                <li><code>pseudo - </code>Указывается, если нужен стиль псевдоэлемента, например ::before. Пустая строка
+                  или отсутствие аргумента означают сам элемент.</li>
+              </ul>
+
+              <p>getComputedStyle требует полное свойство!
+                Для правильного получения значения нужно указать точное свойство. Например: paddingLeft, marginTop,
+                borderTopWidth. При обращении к сокращённому: padding, margin, border – правильный результат не
+                гарантируется.</p>
+            </details>
+
+          </section>
+
+
+
+
+
           <section class="js__cycles">
             <h2 class="title">циклы</h2>
 
@@ -1358,7 +1616,35 @@ alert(x); // 1
 
 
               <details class="show-piece">
-                <summary><code></code></summary>
+                <summary><code>&&</code> -- и</summary>
+                <p>находит первое ложное значение</p>
+
+                <p>возвращает true, если оба аргумента истинны, а иначе – false</p>
+                <pre>
+  <code>
+result = a && b; 
+
+alert( true && true ); // true
+alert( false && true ); // false
+alert( true && false ); // false
+alert( false && false ); // false
+  </code>
+</pre>
+
+                <p>Если все операнды были истинными, возвращается последний.</p>
+                <p>Другими словами, И возвращает первое ложное значение. Или последнее, если ничего не найдено.</p>
+                <pre>
+  <code>
+    Если первый операнд ложный, && возвращает его. 
+          Второй операнд игнорируется
+alert( null && 5 ); // null
+alert( 0 && "no matter what" ); // 0
+
+alert( 1 && 2 && null && 3 ); // null
+
+alert( 1 && 2 && 3 ); // 3
+  </code>
+</pre>
 
               </details>
 
@@ -1387,7 +1673,6 @@ alert(x); // 1
 
         </div>
       </section> <!-- js -->
-
     </main>
 
     <footer class="page-footer"></footer>
