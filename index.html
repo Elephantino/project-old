@@ -24,7 +24,7 @@
     <main class="page-main">
       <div class="container">
 
-
+        <p>атрибут title="подсказка при hover"</p>
         <section class="">
 
 
@@ -57,14 +57,14 @@
           <pre>
   <code>
 git init
+git remote add origin http://
+git pull origin main
+
+git init
 git add . 
   git status 
 git commit -m "commit"
 git push http://
-
-git init
-git remote add origin http://
-git pull origin main
 
 git clone http://
   </code>
@@ -162,6 +162,97 @@ git clone http://
           </div>
 
         </section>
+
+        <section class="stylesForMany">
+          <h2>стилизация элементов на основе их количества</h2>
+          <div class="stylesForMany__inner">
+            <h3>:only-child</h3>
+            <p>стилизовать все дочерние элементы определенного элемента, если
+              подсчет этих дочерних
+              элементов возвращает 1 в качестве суммы.</p>
+            <pre>
+  <code>
+button {  общие стили кнопок
+ font-size: 1.25em;
+}
+
+button:only-of-type {  стили для конкретной кнопки
+ font-size: 2em;
+}
+  </code>
+</pre>
+            <p>любая единственная кнопка выделится шрифтом только если она единственная у родителя, т.к. стили по
+              каскаду заменят font-size</p>
+            <p>можно сделать это же отрицанием
+              если элементов меньше двух</p>
+            <pre>
+  <code>
+button {
+ font-size: 2em;
+}
+
+button:not(:only-of-type) {
+ font-size: 1.25em;
+}
+
+если кнопка не единственная то font-size заменится по каскаду
+  </code>
+</pre>
+
+            <h3>:nth-last-child(n)</h3>
+            <p>селектор принимает число « n », что позволяет считать наборы элементов от конца набора к началу.
+              Например,
+              :nth-last-child(6)
+              соответствует элементу, который является шестым от последнего среди родственных элементов.</p>
+            <p>:nth-last-child(2) - второй от последнего</p>
+            <div class="stylesForMany__show one">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <h3>:nth-last-child(6):first-child</h3>
+            <p>любой элемент который является одновременно шестым элементом с конца и первым элементом.</p>
+            <div class="stylesForMany__show two">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <img src="../img/nthLastChild.jpg" alt="">
+            <pre>
+  <code>
+li:nth-last-child(6):first-child, 
+li:nth-last-child(6):first-child ~ li {
+ color: green;
+}
+
+каждый элемент принимает зеленый цвет, если всего их ровно шесть.
+  </code>
+</pre>
+            <img src="../img/nthLastChildNthFirstChild.jpg" alt="">
+
+            <h2>Больше или равно определенного числа</h2>
+            <p>Нацеливание на дискретное количество — будь то 6, 19 или 653 — не особенно полезно, поскольку оно
+              относится к такой
+              конкретной ситуации.</p>
+            <p><code>« n + [целое число]»</code></p>
+            <p>:nth-child(n+6) стилизует все элементы набора, начиная с шестого.</p>
+            <img src="../img/nthChild.webp" alt="">
+            <p>это не метод выбора с «количественным учетом» как таковой: мы ничего не стилизуем, потому что всего
+              имеется шесть или
+              более элементов; мы просто стилизуем те, которые имеют число больше пяти.</p>
+
+
+
+          </div>
+        </section>
+
 
       </div>
     </main>

@@ -462,3 +462,21 @@ fit-content p {
     0 16px 8px rgba(0, 0, 0, .09), 
     0 32px 16px rgba(0, 0, 0, .09);
 }
+
+
+
+
+
+
+.stylesForMany__show span {
+  display: inline-block;
+  width: 2em;
+  height: 1em;
+  background-color: silver;
+}
+.stylesForMany__show.one span:nth-last-child(2) {
+  background-color: tomato;
+}
+.stylesForMany__show.two span:nth-last-child(6):first-child {
+  background-color: tomato;
+}
