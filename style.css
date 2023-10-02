@@ -15,6 +15,7 @@ body {
   margin: 0;
   color: #4c4c4c;
   min-width: 320px;
+  font-size: 22px;
 }
 h1,h2,h3,h4,h5,h6,p {
   margin: 0;
@@ -466,7 +467,9 @@ fit-content p {
 
 
 
-
+.stylesForMany__inner > img {
+  max-width: 450px;
+}
 
 .stylesForMany__show span {
   display: inline-block;
@@ -478,5 +481,23 @@ fit-content p {
   background-color: tomato;
 }
 .stylesForMany__show.two span:nth-last-child(6):first-child {
+  background-color: tomato;
+}
+.stylesForMany__show.three span:nth-last-child(6):first-child,
+.stylesForMany__show.three span:nth-last-child(6):first-child ~ span {
+  background-color: tomato;
+}
+
+
+
+.stylesForMany__show.four span:nth-child(n+6) {
+  background-color: tomato;
+}
+.stylesForMany__show.five span:nth-child(6),
+.stylesForMany__show.five span:nth-child(6) ~ span {
+  background-color: tomato;
+}
+
+.stylesForMany__show.six span:nth-last-child(n+6) {
   background-color: tomato;
 }
