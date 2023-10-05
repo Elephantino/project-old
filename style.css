@@ -502,7 +502,105 @@ fit-content p {
   background-color: tomato;
 }
 
-
 .stylesForMany__show.seven span:nth-child(even) {
   background-color: tomato;
+}
+
+
+
+
+div.nth-child {
+  font-family: monospace;
+  font-size: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.nth-child__item {
+  border: 1px solid silver;
+}
+
+.nth-child__table {
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.nth-child__table th,
+.nth-child__table td {
+  border-bottom: 1px solid black;
+  padding: 0.3em;
+}
+
+.nth-child__table th {
+  padding-right: 1em;
+  text-align: left;
+}
+
+
+.nth-child__table td>span {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 0 0.3em;
+  text-align: center;
+  margin-bottom: 0.1em;
+}
+
+.nth-child__tr-1 span:first-child {
+  background-color: tomato;
+}
+
+.nth-child__tr-2 span:last-child {
+  background-color: tomato;
+}
+
+.nth-child__tr-3 span:nth-child(2) {
+  background-color: tomato;
+}
+
+.nth-child__tr-4 span:nth-last-child(2) {
+  background-color: tomato;
+}
+
+.nth-child__tr-5 span:nth-child(odd) {
+  background-color: tomato;
+}
+
+.nth-child__tr-6 span:nth-child(even) {
+  background-color: tomato;
+}
+
+.nth-child__tr-7 span:nth-child(2n) {
+  background-color: tomato;
+}
+
+.nth-child__tr-8 span:nth-child(n+3) {
+  background-color: tomato;
+}
+
+.nth-child__tr-9 span:nth-child(-n+3) {
+  background-color: tomato;
+}
+
+.nth-child__tr-10 span:nth-child(3n-1) {
+  background-color: tomato;
+}
+
+.nth-child__tr-11 span:nth-child(4n-1) {
+  background-color: tomato;
+}
+
+.nth-child__tr-12 span:nth-child(4n) {
+  background-color: tomato;
+}
+
+
+.nth-child__how {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.nth-child__how>p {
+  text-align: center;
 }

@@ -574,41 +574,257 @@ input:checked ~ label { ... }
 
               <details class="show-piece nth-child">
                 <summary><code>nth-child</code></summary>
-                <pre>
-  <code>
-:nth-child(odd)  /четные
-:nth-child(even) /нечетные
-на самом деле наоборот потому что они считают как массивы с 0 а не с 1
 
+                <div class="nth-child">
+                  <table class="nth-child__table">
+                    <caption>nth-child</caption>
 
-:nth-child(2n)
-1.         2*0 = 0; нет элементов     n = 0
-2.         2*1 = 2; 2-й элемент       n = 1
-3.         2*2 = 4; 4-й элемент       n = 2
+                    <tbody>
+                      <tr class="nth-child__tr-1">
+                        <th>:first-child</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-2">
+                        <th>:last-child</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-3">
+                        <th>:nth-child(2)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-4">
+                        <th>:nth-last-child(2)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-5">
+                        <th>:nth-child(odd)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-6">
+                        <th>:nth-child(even)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-7">
+                        <th>:nth-child(2n)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-8">
+                        <th>:nth-child(n+3)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-9">
+                        <th>:nth-child(-n+3)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-10">
+                        <th>:nth-child(3n-1)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-11">
+                        <th>:nth-child(4n-1)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                      <tr class="nth-child__tr-12">
+                        <th>:nth-child(4n)</th>
+                        <td>
+                          <span>1</span>
+                          <span>2</span>
+                          <span>3</span>
+                          <span>4</span>
+                          <span>5</span>
+                          <span>6</span>
+                          <span>7</span>
+                          <span>8</span>
+                          <span>9</span>
+                          <span>10</span>
+                          <span>11</span>
+                          <span>12</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="nth-child__how">
+                    <p>how it works?</p>
 
-:nth-child(n+3)
-1.         0+3 = 3-й элемент          
-2.         1+3 = 4-й элемент          
-3.         2+3 = 5-й элемент          
+                    <div class="nth-child__item">
+                      <p>( n + 3 )</p>
+                      <ul>
+                        <li>n = 0 =&gt; ( 0 + 3 ) = 3-й элемент</li>
+                        <li>n = 1 =&gt; ( 1 + 3 ) = 4-й элемент</li>
+                        <li>n = 2 =&gt; ( 2 + 3 ) = 5-й элемент</li>
+                        <li>n = 3 =&gt; ( 3 + 3 ) = 6-й элемент</li>
+                        <li>n = 4 =&gt; ( 4 + 3 ) = 7-й элемент</li>
+                      </ul>
+                    </div>
 
-:nth-child(-n+3)
-1.         -0+3 =  3-й элемент              n = - 0
-2.         -1+3 =  2-й элемент              n = - 1
-3.         -2+3 =  1-й элемент              n = - 2
-4.         -3+3 =  0-й элемент /никакой     n = - 3
-5.         -4+3 = -1-й элемент /никакой     n = - 4
+                    <div class="nth-child__item">
+                      <p>( -n + 3 )</p>
+                      <ul>
+                        <li>n = -0 =&gt; ( -0 + 3 ) = 3-й элемент</li>
+                        <li>n = -1 =&gt; ( -1 + 3 ) = 2-й элемент</li>
+                        <li>n = -2 =&gt; ( -2 + 3 ) = 1-й элемент</li>
+                        <li>n = -3 =&gt; ( -3 + 3 ) = 0-й элемент</li>
+                        <li>n = -4 =&gt; ( -4 + 3 ) = -1-й элемент</li>
+                      </ul>
+                    </div>
 
-:nth-child(3n-1)
-1.         3*0-1 = -1; /никакой
-2.         3*1-1 =  2; 2-й элемент
-3.         3*2-1 =  5; 5-й элемент
+                    <div class="nth-child__item">
+                      <p>( 4n - 1 )</p>
+                      <ul>
+                        <li>n = 0 =&gt; ( 4 * 0 - 1 ) = -1-й элемент</li>
+                        <li>n = 1 =&gt; ( 4 * 1 - 1 ) = 3-й элемент</li>
+                        <li>n = 2 =&gt; ( 4 * 2 - 1 ) = 7-й элемент</li>
+                        <li>n = 3 =&gt; ( 4 * 3 - 1 ) = 11-й элемент</li>
+                        <li>n = 4 =&gt; ( 4 * 4 - 1 ) = 15-й элемент</li>
+                      </ul>
+                    </div>
 
-:nth-child(4n-1)
-1.         4*0-1 = -1-й элемент /никакой
-2.         4*1-1 =  3-й элемент
-3.         4*2-1 =  7-й элемент
-  </code>
-</pre>
+                  </div>
+                </div>
+
               </details>
 
               <details class="show-piece not">
